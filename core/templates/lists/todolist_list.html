@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <a href="{%url 'lists:list-create' %}">Add New </a>
+    {%for post in object_list%}
+    <div>
+
+        <h2>
+           <a>{{post.id}}: {{post.title}}</a>
+
+        </h2>
+        <p>{{post.content}}</p>
+        <h5>
+        <a href="{%url 'lists:list-delete' pk=post.id%}">Delete</a>
+        <a href="{%url 'lists:list-edit' pk=post.id%}">edit</a>
+        </h5>
+    </div>
+
+    {% endfor %}
+</body>
+</html>
